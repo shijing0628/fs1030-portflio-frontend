@@ -1,0 +1,14 @@
+.play-video {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.fa-play-circle {
+  color: #ff8092;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.fa-play-circle:hover {
+  color: #ed6347;
+}

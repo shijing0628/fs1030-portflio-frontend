@@ -1,0 +1,10 @@
+.contact-title {
+  width: 100%;
+  display: block;
+  text-align: center;
+  margin: 20px auto;
+}
+.contact-container {
+  width: 50% !important;
+  height: 100%;
+}

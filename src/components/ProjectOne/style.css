@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  width: 60%;
+  height: 100%;
+  margin: 0 auto;
+}
+.project-title {
+  margin: 10px;
+}
+.prj-desc {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.makeStyles-root-1 {
+  height: 100% !important;
+}

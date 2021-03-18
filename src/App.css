@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "PT Sans", sans-serif;
+  box-sizing: border-box;
+}
+.home,
+.about,
+.contact,
+.signUp,
+.gallery {
+  display: flex;
+}
+
+.custmized-footer {
+  display: flex;
+  align-items: center;
+  margin: 20px auto;
+  width: 90%;
+}
+.theme-btn {
+  padding: 10px 7px;
+  margin: 5px auto;
+  background-color: #9c6ade;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: all 0.5s;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+}
+.theme-btn:hover {
+  background-color: #ffc48b;
+  color: #000;
+}
