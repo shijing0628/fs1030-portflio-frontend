@@ -18,6 +18,10 @@ const MyTextField = withStyles({
     "& .MuiFormHelperText-root": {
       color: "#9C6ADE",
     },
+    "& .MuiOutlinedInput-input": {
+      color: "blue",
+      zIndex: "2",
+    },
   },
 })(TextField);
 
@@ -54,18 +58,20 @@ function PortfolioUpdate(props) {
   const updatePortfoilo = (e, id) => {
     e.preventDefault();
     let newData = {
-      projectName,
-      projectDesc,
-      creatorName,
-      image,
-      createDate,
+      proj_name: projectName,
+      proj_desc: projectDesc,
+      creator_name: creatorName,
+      image: image,
+      date_completed: createDate,
     };
 
     try {
-      axios.put(`http://localhost:5000/portfolio/update/${id}`).then((res) => {
-        setProjectList(newData);
-        console.log(res);
-      });
+      axios
+        .put(`http://localhost:5000/portfolio/update/${id}`, newData)
+        .then((res) => {
+          setProjectList(newData);
+          console.log(res);
+        });
       setUpdate("Update Successfully!");
     } catch (err) {
       console.log(err);
@@ -79,7 +85,7 @@ function PortfolioUpdate(props) {
       <h1>Update Portfolio</h1>
       <form
         className="contact-form"
-        onSubmit={(e, id) => updatePortfoilo(e, id)}
+        onSubmit={(e, id) => updatePortfoilo(e, props.match.params.id)}
       >
         <MyTextField
           style={{ marginBottom: "30px" }}
