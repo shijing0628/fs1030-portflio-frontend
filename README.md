@@ -46,24 +46,14 @@ npm start
 - react-notifications-component for successfully submit the contact form
 - fully responsive on mobile devices
 
-![](2021-02-22-10-33-11.png)
-
-![](2021-02-22-10-33-38.png)
-
-![](2021-02-22-10-33-59.png)
-
-![](2021-02-22-10-34-22.png)
-
-![](2021-02-22-10-34-41.png)
-
-![](2021-02-22-10-36-40.png)
-
-![](2021-02-24-09-00-30.png)
-
+**http://localhost:3000/admin/portfolio**
+![](2021-03-19-15-22-13.png)
 <br>
 
-![](2021-02-24-14-43-55.png)
+**http://localhost:3000/admin/portfolio/create**
 
-![](2021-02-24-15-18-28.png)
+![](2021-03-19-15-23-19.png)
+<br>
 
-![](2021-02-26-10-12-21.png)
+**http://localhost:3000/admin/portfolio/update/2**
+![](2021-03-19-15-24-00.png)

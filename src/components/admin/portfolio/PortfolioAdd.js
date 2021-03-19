@@ -3,6 +3,7 @@ import { withStyles } from "@material-ui/core/styles";
 import axios from "axios";
 import { TextField, Button } from "@material-ui/core";
 import "./style.css";
+import { useHistory } from "react-router-dom";
 
 const MyTextField = withStyles({
   root: {
@@ -41,7 +42,7 @@ function PortfolioAdd() {
   const [image, setImage] = useState("");
   const [createDate, setCreateDate] = useState("");
   const [add, setAdd] = useState("Add to database");
-
+  let history = useHistory();
   const submitPortfoilo = async (e) => {
     e.preventDefault();
     let data = {
@@ -58,6 +59,9 @@ function PortfolioAdd() {
       });
 
       setAdd("Add Successfully!");
+      setTimeout(function () {
+        history.push("/admin/portfolio");
+      }, 3000);
     } catch (err) {
       console.log(err);
       setAdd("Add to Database");

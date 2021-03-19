@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
@@ -21,6 +21,7 @@ import pic3 from "../../src/images/pic3.jpg";
 import pic4 from "../../src/images/pic4.jpg";
 import pic5 from "../../src/images/pic5.jpg";
 import pic6 from "../../src/images/pic6.jpg";
+import axios from "axios";
 
 const theme = createMuiTheme({
   palette: {
@@ -84,9 +85,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function About() {
+function About(props) {
   const history = useHistory();
   const classes = useStyles();
+
+  const [projectList, setProjectList] = useState([]);
+  useEffect(() => {
+    axios.get("http://localhost:5000/portfolio").then(({ data }) => {
+      setProjectList(data);
+      console.log(data);
+    });
+  }, []);
 
   const handleClick = () => {
     history.push("/about/projectOne");

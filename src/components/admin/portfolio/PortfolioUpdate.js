@@ -3,6 +3,7 @@ import { withStyles } from "@material-ui/core/styles";
 import axios from "axios";
 import { TextField, Button } from "@material-ui/core";
 import "./style.css";
+import { useHistory } from "react-router-dom";
 
 const MyTextField = withStyles({
   root: {
@@ -46,6 +47,7 @@ function PortfolioUpdate(props) {
   const [createDate, setNewCreateDate] = useState("");
   const [update, setUpdate] = useState("Update to database");
   const [projectList, setProjectList] = useState([]);
+  let history = useHistory();
 
   useEffect(() => {
     let id = props.match.params.id;
@@ -73,6 +75,9 @@ function PortfolioUpdate(props) {
           console.log(res);
         });
       setUpdate("Update Successfully!");
+      setTimeout(function () {
+        history.push("/admin/portfolio");
+      }, 3000);
     } catch (err) {
       console.log(err);
       setUpdate("Update to Database");
