@@ -22,6 +22,9 @@ import { useState, useEffect } from "react";
 import storage from "local-storage-fallback";
 import SocialFollow from "./components/SocialFollow/SocialFollow";
 import ReactNotification from "react-notifications-component";
+import Portfolio from "./components/admin/portfolio/Portfolio";
+import PortfolioAdd from "./components/admin/portfolio/PortfolioAdd";
+import PortfolioUpdate from "./components/admin/portfolio/PortfolioUpdate";
 
 const GlobalStyle = createGlobalStyle`
 body {
@@ -60,6 +63,17 @@ function App() {
           <Route path="/auth" component={Login}></Route>
           <Route path="/users" component={SignUp}></Route>
           <Route path="/dashboard" component={Dashboard}></Route>
+          <Route path="/admin/portfolio" exact component={Portfolio}></Route>
+          <Route
+            path="/admin/portfolio/create"
+            exact
+            component={PortfolioAdd}
+          ></Route>
+          <Route
+            path="/admin/portfolio/update/:id"
+            exact
+            component={PortfolioUpdate}
+          ></Route>
         </Switch>
       </Router>
       <footer className="custmized-footer">
