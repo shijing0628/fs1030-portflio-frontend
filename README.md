@@ -57,3 +57,9 @@ npm start
 
 **http://localhost:3000/admin/portfolio/update/2**
 ![](2021-03-19-15-24-00.png)
+
+**http://localhost:3000/skills**
+![](2021-03-20-15-02-49.png)
+
+**http://localhost:3000/admin/api/resume**
+![](2021-03-20-15-03-57.png)
