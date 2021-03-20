@@ -7,11 +7,13 @@ import "./style.css";
 import design1 from "../../images/design1.svg";
 import code from "../../images/code.svg";
 import database from "../../images/Database.svg";
+import WorkExperience from "../WorkExperience/WorkExperience";
 
 export default function MySkills() {
   return (
     <div className="AboutPage">
       <ImageSection />
+      <WorkExperience />
       <Tittle title={"My Skills"} />
       <div className="skillsContainer">
         <SkillsSection skill={"Javascript"} progress={"90%"} width={"90%"} />

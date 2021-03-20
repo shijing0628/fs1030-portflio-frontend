@@ -25,6 +25,9 @@ import ReactNotification from "react-notifications-component";
 import Portfolio from "./components/admin/portfolio/Portfolio";
 import PortfolioAdd from "./components/admin/portfolio/PortfolioAdd";
 import PortfolioUpdate from "./components/admin/portfolio/PortfolioUpdate";
+import Resume from "./components/admin/resume/Resume";
+import ResumeAdd from "./components/admin/resume/ResumeAdd";
+import ResumeUpdate from "./components/admin/resume/ResumeUpdate";
 
 const GlobalStyle = createGlobalStyle`
 body {
@@ -73,6 +76,17 @@ function App() {
             path="/admin/portfolio/update/:id"
             exact
             component={PortfolioUpdate}
+          ></Route>
+          <Route path="/admin/api/resume" exact component={Resume}></Route>
+          <Route
+            path="/admin/api/resume/create"
+            exact
+            component={ResumeAdd}
+          ></Route>
+          <Route
+            path="/admin/api/resume/update/:id"
+            exact
+            component={ResumeUpdate}
           ></Route>
         </Switch>
       </Router>

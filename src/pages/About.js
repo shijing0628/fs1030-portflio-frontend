@@ -14,13 +14,14 @@ import Pagination from "@material-ui/lab/Pagination";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import { useHistory } from "react-router-dom";
 import Model from "../components/VideoModel/VideoModel";
-import pic1 from "../../src/images/pic1.jpg";
 import backGround from "../../src/images/mywork-bg.jpg";
-import pic2 from "../../src/images/pic2.jpg";
-import pic3 from "../../src/images/pic3.jpg";
-import pic4 from "../../src/images/pic4.jpg";
-import pic5 from "../../src/images/pic5.jpg";
-import pic6 from "../../src/images/pic6.jpg";
+// import pic2 from "../../src/images/pic2.jpg";
+// import pic3 from "../../src/images/pic3.jpg";
+// import pic4 from "../../src/images/pic4.jpg";
+// import pic5 from "../../src/images/pic5.jpg";
+// import pic6 from "../../src/images/pic6.jpg";
+//import pic1 from "../../src/images/pic1.jpg";
+
 import axios from "axios";
 
 const theme = createMuiTheme({
@@ -85,7 +86,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function About(props) {
+function About() {
   const history = useHistory();
   const classes = useStyles();
 
@@ -116,58 +117,64 @@ function About(props) {
         <Typography variant="h4" className={classes.blogTitle} style={style}>
           My Projects
         </Typography>
-        <Grid container spacing={3}>
-          <Grid item xs={12} sm={6} md={4}>
-            <Card className={classes.card} onClick={handleClick}>
-              <CardActionArea>
-                <CardMedia
-                  className={classes.media}
-                  image={pic1}
-                  title="Contemplative Reptile"
-                />
-                <CardContent>
-                  <Typography
-                    gutterBottom
-                    variant="h5"
-                    component="h2"
-                    style={style}
-                  >
-                    E-Commerce Shopping Cart
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    color="textSecondary"
-                    component="p"
-                    style={style}
-                  >
-                    <b>NextJs project.</b> Lizards are a widespread group of
-                    squamate reptiles, with over 6,000 species, ranging across
-                    all continents except Antarctica
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-              <CardActions className={classes.cardActions}>
-                <Box className={classes.author}>
-                  <Avatar src="https://camo.githubusercontent.com/92ec9eb7eeab7db4f5919e3205918918c42e6772562afb4112a2909c1aaaa875/68747470733a2f2f6173736574732e76657263656c2e636f6d2f696d6167652f75706c6f61642f76313630373535343338352f7265706f7369746f726965732f6e6578742d6a732f6e6578742d6c6f676f2e706e67" />
-                  <Box ml={2}>
-                    <Typography variant="subtitle2" component="p" style={style}>
-                      Brenda Liu
-                    </Typography>
-                    <Typography
-                      variant="subtitle2"
-                      color="textSecondary"
-                      component="p"
-                    >
-                      May 14, 2020
-                    </Typography>
-                  </Box>
-                </Box>
-                <Box></Box>
-              </CardActions>
-            </Card>
-          </Grid>
 
-          <Grid item xs={12} sm={6} md={4}>
+        <Grid container spacing={3}>
+          {projectList &&
+            projectList.map((p) => (
+              <Grid item xs={12} sm={6} md={4}>
+                <Card className={classes.card} onClick={handleClick}>
+                  <CardActionArea>
+                    <CardMedia
+                      className={classes.media}
+                      image={p.image}
+                      title="Contemplative Reptile"
+                    />
+                    <CardContent>
+                      <Typography
+                        gutterBottom
+                        variant="h5"
+                        component="h2"
+                        style={style}
+                      >
+                        {p.proj_name}
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        color="textSecondary"
+                        component="p"
+                        style={style}
+                      >
+                        {p.proj_desc}
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                  <CardActions className={classes.cardActions}>
+                    <Box className={classes.author}>
+                      <Avatar src="https://camo.githubusercontent.com/92ec9eb7eeab7db4f5919e3205918918c42e6772562afb4112a2909c1aaaa875/68747470733a2f2f6173736574732e76657263656c2e636f6d2f696d6167652f75706c6f61642f76313630373535343338352f7265706f7369746f726965732f6e6578742d6a732f6e6578742d6c6f676f2e706e67" />
+                      <Box ml={2}>
+                        <Typography
+                          variant="subtitle2"
+                          component="p"
+                          style={style}
+                        >
+                          {p.creator_name}
+                        </Typography>
+                        <Typography
+                          variant="subtitle2"
+                          color="textSecondary"
+                          component="p"
+                        >
+                          {p.date_completed}
+                        </Typography>
+                      </Box>
+                    </Box>
+                    <Box></Box>
+                  </CardActions>
+                </Card>
+              </Grid>
+            ))}
+
+          {/* <Grid item xs={12} sm={6} md={4}>
             <Card className={classes.card} onClick={handleClick}>
               <CardActionArea>
                 <CardMedia className={classes.media} image={pic2} />
@@ -392,7 +399,7 @@ function About(props) {
                 <Box></Box>
               </CardActions>
             </Card>
-          </Grid>
+          </Grid> */}
         </Grid>
         <Box my={4} className={classes.paginationContainer}>
           <Pagination count={10} />

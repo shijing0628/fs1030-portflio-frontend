@@ -1,0 +1,10 @@
+.container_resume {
+  width: 80%;
+  height: 80vh;
+  margin: 0 auto;
+}
+.container_resume > h1 {
+  width: 100%;
+  margin-bottom: 40px;
+  margin-top: 20px;
+}
