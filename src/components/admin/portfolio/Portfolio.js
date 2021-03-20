@@ -15,7 +15,7 @@ import {
 function Portfolio(props) {
   const [projectList, setProjectList] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:5000/portfolio").then(({ data }) => {
+    axios.get("http://localhost:5000/api/portfolio").then(({ data }) => {
       setProjectList(data);
       console.log(data);
     });
@@ -24,7 +24,7 @@ function Portfolio(props) {
   const deleteProject = (e, id) => {
     e.preventDefault();
     axios
-      .delete(`http://localhost:5000/portfolio/delete/${id}`)
+      .delete(`http://localhost:5000/api/portfolio/delete/${id}`)
       .then((response) => {
         setProjectList(
           projectList.filter((val) => {

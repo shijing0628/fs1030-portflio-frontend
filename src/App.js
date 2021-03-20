@@ -66,17 +66,22 @@ function App() {
           <Route path="/auth" component={Login}></Route>
           <Route path="/users" component={SignUp}></Route>
           <Route path="/dashboard" component={Dashboard}></Route>
-          <Route path="/admin/portfolio" exact component={Portfolio}></Route>
           <Route
-            path="/admin/portfolio/create"
+            path="/admin/api/portfolio"
+            exact
+            component={Portfolio}
+          ></Route>
+          <Route
+            path="/admin/api/portfolio/create"
             exact
             component={PortfolioAdd}
           ></Route>
           <Route
-            path="/admin/portfolio/update/:id"
+            path="/admin/api/portfolio/update/:id"
             exact
             component={PortfolioUpdate}
           ></Route>
+
           <Route path="/admin/api/resume" exact component={Resume}></Route>
           <Route
             path="/admin/api/resume/create"

@@ -51,7 +51,7 @@ function PortfolioUpdate(props) {
 
   useEffect(() => {
     let id = props.match.params.id;
-    axios.get(`http://localhost:5000/portfolio/${id}`).then(({ data }) => {
+    axios.get(`http://localhost:5000/api/portfolio/${id}`).then(({ data }) => {
       setProjectList(data[0]);
       console.log(data[0]);
     });
@@ -69,14 +69,14 @@ function PortfolioUpdate(props) {
 
     try {
       axios
-        .put(`http://localhost:5000/portfolio/update/${id}`, newData)
+        .put(`http://localhost:5000/api/portfolio/update/${id}`, newData)
         .then((res) => {
           setProjectList(newData);
           console.log(res);
         });
       setUpdate("Update Successfully!");
       setTimeout(function () {
-        history.push("/admin/portfolio");
+        history.push("/admin/api/portfolio");
       }, 3000);
     } catch (err) {
       console.log(err);

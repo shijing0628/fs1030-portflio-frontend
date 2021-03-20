@@ -92,7 +92,7 @@ function About() {
 
   const [projectList, setProjectList] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:5000/portfolio").then(({ data }) => {
+    axios.get("http://localhost:5000/api/portfolio").then(({ data }) => {
       setProjectList(data);
       console.log(data);
     });

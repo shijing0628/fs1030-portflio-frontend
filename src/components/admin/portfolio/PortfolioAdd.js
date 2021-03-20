@@ -53,14 +53,16 @@ function PortfolioAdd() {
       createDate,
     };
     try {
-      axios.post("http://localhost:5000/portfolio/create", data).then(() => {
-        console.log("successful insert");
-        // setProjectList([...projectList, data]);
-      });
+      axios
+        .post("http://localhost:5000/api/portfolio/create", data)
+        .then(() => {
+          console.log("successful insert");
+          // setProjectList([...projectList, data]);
+        });
 
       setAdd("Add Successfully!");
       setTimeout(function () {
-        history.push("/admin/portfolio");
+        history.push("/admin/api/portfolio");
       }, 3000);
     } catch (err) {
       console.log(err);

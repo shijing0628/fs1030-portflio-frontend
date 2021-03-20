@@ -15,15 +15,16 @@ const loginMyUser = async (
       const { data } = response;
 
       const userData = data.data[data.data.length - 1];
+      console.log(userData);
       const adminEmail = data.data[1].email;
       const email = credentials.email;
+
       sessionService
         .saveSession(data.token)
         .then(() => {
           sessionService
             .saveUser(userData)
             .then(() => {
-              console.log(data.data);
               if (email === adminEmail) {
                 history.push("/admin/api/resume");
               } else {
