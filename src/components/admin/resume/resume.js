@@ -1,4 +1,4 @@
-import { Button, ButtonGroup, Link } from "@material-ui/core";
+import { Button, Link } from "@material-ui/core";
 import React, { useState, useEffect } from "react";
 import "./style.css";
 import axios from "axios";
@@ -12,13 +12,30 @@ import {
   TableHead,
   TableRow,
 } from "@material-ui/core";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
 import { connect } from "react-redux";
 import { sessionService } from "redux-react-session";
+import { green, purple } from "@material-ui/core/colors";
 
 function Resume({ signOutMyUser }) {
+  const useStyles = makeStyles((theme) => ({
+    margin: {
+      margin: theme.spacing(1),
+    },
+  }));
+  const ColorButton = withStyles((theme) => ({
+    root: {
+      color: theme.palette.getContrastText(green[500]),
+      backgroundColor: green[500],
+      "&:hover": {
+        backgroundColor: purple[700],
+      },
+    },
+  }))(Button);
   const authenticated = useSelector((store) => store.session.authenticated);
   console.log("authenticated", authenticated);
   const [workList, setWorkList] = useState([]);
+  const classes = useStyles();
 
   useEffect(() => {
     async function fetchData() {
@@ -59,7 +76,27 @@ function Resume({ signOutMyUser }) {
       {authenticated ? (
         <div>
           <br></br>
-          <h1>Work Experience List</h1>
+          <h1>
+            Work Experience List{" "}
+            <ColorButton
+              variant="contained"
+              color="primary"
+              onClick={signOutMyUser}
+              className={classes.margin}
+            >
+              Log out
+            </ColorButton>
+            <Button
+              variant="outlined"
+              color="primary"
+              className={classes.margin}
+            >
+              <Link href="/admin/api/portfolio">
+                <b>Go To Edit portfolio Page</b>
+              </Link>
+            </Button>
+          </h1>
+
           <br></br>
           <Link href="/admin/api/resume/create">
             <Button color="primary" variant="contained">
@@ -142,11 +179,6 @@ function Resume({ signOutMyUser }) {
               </Table>
             </TableContainer>
           </div>
-          <ButtonGroup>
-            <button class="btn-logout" onClick={signOutMyUser}>
-              Logout
-            </button>
-          </ButtonGroup>
         </div>
       ) : (
         <h1>Login Required</h1>
