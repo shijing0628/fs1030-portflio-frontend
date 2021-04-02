@@ -161,7 +161,7 @@ function Resume({ signOutMyUser }) {
                             </Button>
                           </Link>
 
-                          <Link href={`/admin/api/resume//${p.id}`}>
+                          <Link href={`/admin/api/resume/${p.id}`}>
                             <Button
                               variant="contained"
                               color="secondary"

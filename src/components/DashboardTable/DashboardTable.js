@@ -30,6 +30,7 @@ function DashboardTable({ signOutMyUser }) {
         } = await axios.get("http://localhost:5000/contact_form/entries", {
           headers: {
             "Content-Type": "application/json",
+
             Authorization: `Bearer ${token}`,
           },
         });

@@ -16,8 +16,11 @@ const loginMyUser = async (
 
       const userData = data.data[data.data.length - 1];
       console.log(userData);
-      const adminEmail = data.data[1].email;
+      // const adminEmail = data.data[1].email;
+      const adminEmail = "brenda@gmail.com";
+      const adminP = "12345678";
       const email = credentials.email;
+      const password = credentials.password;
 
       sessionService
         .saveSession(data.token)
@@ -25,7 +28,7 @@ const loginMyUser = async (
           sessionService
             .saveUser(userData)
             .then(() => {
-              if (email === adminEmail) {
+              if (email === adminEmail && password === adminP) {
                 history.push("/admin/api/resume");
               } else {
                 history.push("/dashboard");
